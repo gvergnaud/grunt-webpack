@@ -34,7 +34,7 @@ module.exports = (grunt) => {
       if (opts.cache) cachePluginFactory.updateDependencies(this.target, compiler);
       if (err) return done(err);
 
-      if (opts.stats && !stats.hasErrors()) {
+      if (opts.stats && !opts.stats.quiet && !stats.hasErrors()) {
         grunt.log.writeln(stats.toString(opts.stats));
       }
 
